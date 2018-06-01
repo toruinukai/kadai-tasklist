@@ -47,9 +47,9 @@ class TasklistsController extends Controller
         $this->validate($request, [
             'content' => 'required|max:191',
         ]);
-        $message = new Tasklist;
-        $message->content = $request->content;
-        $message->save();
+        $tasklist = new Tasklist;
+        $tasklist->content = $request->content;
+        $tasklist->save();
 
         return redirect('/');
     }
