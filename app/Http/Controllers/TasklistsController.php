@@ -44,6 +44,9 @@ class TasklistsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'content' => 'required|max:191',
+        ]);
         $message = new Tasklist;
         $message->content = $request->content;
         $message->save();
@@ -89,7 +92,13 @@ class TasklistsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+    
+
     {
+        
+
+
+
         $tasklist = Tasklist::find($id);
         $tasklist->content = $request->content;
         $tasklist->save();
